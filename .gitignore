@@ -1,0 +1,13 @@
+.ipynb_checkpoints
+__pycache__
+logs
+secrets.json
+backups
+notebook/src/models
+outputs
+Untitled*
+notebook/src/images
+notebook/src/train/images/transfer
+notebook/src/test
+notebook/keras/models/*
+!notebook/keras/models/.save_pretrained_models_here

@@ -1,0 +1,139 @@
+2020-11-04 15:11:02 Starting - Starting the training job...
+2020-11-04 15:11:04 Starting - Launching requested ML instances.........
+2020-11-04 15:12:42 Starting - Preparing the instances for training...
+2020-11-04 15:13:25 Downloading - Downloading input data...
+2020-11-04 15:13:49 Training - Downloading the training image..2020-11-04 15:14:11,606 sagemaker-training-toolkit INFO     Imported framework sagemaker_tensorflow_container.training
+2020-11-04 15:14:11,613 sagemaker-training-toolkit INFO     No GPUs detected (normal if no gpus installed)
+2020-11-04 15:14:12,062 sagemaker-training-toolkit INFO     No GPUs detected (normal if no gpus installed)
+2020-11-04 15:14:12,078 sagemaker-training-toolkit INFO     No GPUs detected (normal if no gpus installed)
+2020-11-04 15:14:12,093 sagemaker-training-toolkit INFO     No GPUs detected (normal if no gpus installed)
+2020-11-04 15:14:12,103 sagemaker-training-toolkit INFO     Invoking user script
+
+Training Env:
+
+{
+    "additional_framework_parameters": {},
+    "channel_input_dirs": {
+        "training": "/opt/ml/input/data/training"
+    },
+    "current_host": "algo-1",
+    "framework_module": "sagemaker_tensorflow_container.training:main",
+    "hosts": [
+        "algo-1"
+    ],
+    "hyperparameters": {
+        "model_dir": "s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/model"
+    },
+    "input_config_dir": "/opt/ml/input/config",
+    "input_data_config": {
+        "training": {
+            "TrainingInputMode": "File",
+            "S3DistributionType": "FullyReplicated",
+            "RecordWrapperType": "None"
+        }
+    },
+    "input_dir": "/opt/ml/input",
+    "is_master": true,
+    "job_name": "tensorflow-training-2020-11-04-15-11-01-436",
+    "log_level": 20,
+    "master_hostname": "algo-1",
+    "model_dir": "/opt/ml/model",
+    "module_dir": "s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/source/sourcedir.tar.gz",
+    "module_name": "issue_reproducer",
+    "network_interface_name": "eth0",
+    "num_cpus": 2,
+    "num_gpus": 0,
+    "output_data_dir": "/opt/ml/output/data",
+    "output_dir": "/opt/ml/output",
+    "output_intermediate_dir": "/opt/ml/output/intermediate",
+    "resource_config": {
+        "current_host": "algo-1",
+        "hosts": [
+            "algo-1"
+        ],
+        "network_interface_name": "eth0"
+    },
+    "user_entry_point": "issue_reproducer.py"
+}
+
+Environment variables:
+
+SM_HOSTS=["algo-1"]
+SM_NETWORK_INTERFACE_NAME=eth0
+SM_HPS={"model_dir":"s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/model"}
+SM_USER_ENTRY_POINT=issue_reproducer.py
+SM_FRAMEWORK_PARAMS={}
+SM_RESOURCE_CONFIG={"current_host":"algo-1","hosts":["algo-1"],"network_interface_name":"eth0"}
+SM_INPUT_DATA_CONFIG={"training":{"RecordWrapperType":"None","S3DistributionType":"FullyReplicated","TrainingInputMode":"File"}}
+SM_OUTPUT_DATA_DIR=/opt/ml/output/data
+SM_CHANNELS=["training"]
+SM_CURRENT_HOST=algo-1
+SM_MODULE_NAME=issue_reproducer
+SM_LOG_LEVEL=20
+SM_FRAMEWORK_MODULE=sagemaker_tensorflow_container.training:main
+SM_INPUT_DIR=/opt/ml/input
+SM_INPUT_CONFIG_DIR=/opt/ml/input/config
+SM_OUTPUT_DIR=/opt/ml/output
+SM_NUM_CPUS=2
+SM_NUM_GPUS=0
+SM_MODEL_DIR=/opt/ml/model
+SM_MODULE_DIR=s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/source/sourcedir.tar.gz
+SM_TRAINING_ENV={"additional_framework_parameters":{},"channel_input_dirs":{"training":"/opt/ml/input/data/training"},"current_host":"algo-1","framework_module":"sagemaker_tensorflow_container.training:main","hosts":["algo-1"],"hyperparameters":{"model_dir":"s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/model"},"input_config_dir":"/opt/ml/input/config","input_data_config":{"training":{"RecordWrapperType":"None","S3DistributionType":"FullyReplicated","TrainingInputMode":"File"}},"input_dir":"/opt/ml/input","is_master":true,"job_name":"tensorflow-training-2020-11-04-15-11-01-436","log_level":20,"master_hostname":"algo-1","model_dir":"/opt/ml/model","module_dir":"s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/source/sourcedir.tar.gz","module_name":"issue_reproducer","network_interface_name":"eth0","num_cpus":2,"num_gpus":0,"output_data_dir":"/opt/ml/output/data","output_dir":"/opt/ml/output","output_intermediate_dir":"/opt/ml/output/intermediate","resource_config":{"current_host":"algo-1","hosts":["algo-1"],"network_interface_name":"eth0"},"user_entry_point":"issue_reproducer.py"}
+SM_USER_ARGS=["--model_dir","s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/model"]
+SM_OUTPUT_INTERMEDIATE_DIR=/opt/ml/output/intermediate
+SM_CHANNEL_TRAINING=/opt/ml/input/data/training
+SM_HP_MODEL_DIR=s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/model
+PYTHONPATH=/opt/ml/code:/usr/local/bin:/usr/local/lib/python37.zip:/usr/local/lib/python3.7:/usr/local/lib/python3.7/lib-dynload:/usr/local/lib/python3.7/site-packages
+
+Invoking script with the following command:
+
+/usr/local/bin/python3.7 issue_reproducer.py --model_dir s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/model
+
+
+[2020-11-04 15:14:14.190 ip-10-0-70-255.ap-northeast-1.compute.internal:21 INFO json_config.py:90] Creating hook from json_config at /opt/ml/input/config/debughookconfig.json.
+[2020-11-04 15:14:14.191 ip-10-0-70-255.ap-northeast-1.compute.internal:21 INFO hook.py:193] tensorboard_dir has not been set for the hook. SMDebug will not be exporting tensorboard summaries.
+[2020-11-04 15:14:14.191 ip-10-0-70-255.ap-northeast-1.compute.internal:21 INFO hook.py:238] Saving to /opt/ml/output/tensors
+[2020-11-04 15:14:14.192 ip-10-0-70-255.ap-northeast-1.compute.internal:21 INFO state_store.py:67] The checkpoint config file /opt/ml/input/config/checkpointconfig.json does not exist.
+[2020-11-04 15:14:14.324 ip-10-0-70-255.ap-northeast-1.compute.internal:21 INFO hook.py:398] Monitoring the collections: metrics, losses, sm_metrics
+2020-11-04 15:14:14,673 sagemaker-training-toolkit ERROR    ExecuteUserScriptError:
+Command "/usr/local/bin/python3.7 issue_reproducer.py --model_dir s3://sagemaker-nst/tensorflow-training-2020-11-04-15-11-01-436/model"
+Traceback (most recent call last):
+  File "issue_reproducer.py", line 34, in <module>
+    variable = model.fit(tensor)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 780, in __call__
+    result = self._call(*args, **kwds)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 823, in _call
+    self._initialize(args, kwds, add_initializers_to=initializers)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 697, in _initialize
+    *args, **kwds))
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 2855, in _get_concrete_function_internal_garbage_collected
+    graph_function, _, _ = self._maybe_define_function(args, kwargs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 3213, in _maybe_define_function
+    graph_function = self._create_graph_function(args, kwargs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 3075, in _create_graph_function
+    capture_by_value=self._capture_by_value),
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/framework/func_graph.py", line 986, in func_graph_from_py_func
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 600, in wrapped_fn
+    return weak_wrapped_fn().__wrapped__(*args, **kwds)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 3735, in bound_method_wrapper
+    return wrapped_fn(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/python/framework/func_graph.py", line 973, in wrapper
+    raise e.ag_error_metadata.to_exception(e)
+tensorflow.python.framework.errors_impl.OperatorNotAllowedInGraphError: in user code:
+
+    issue_reproducer.py:23 fit  *
+        grad = tape.gradient(loss, self.variable)
+    /usr/local/lib/python3.7/site-packages/smdebug/tensorflow/keras.py:956 run  **
+        (not grads or not vars)
+    /usr/local/lib/python3.7/site-packages/tensorflow/python/framework/ops.py:877 __bool__
+        self._disallow_bool_casting()
+    /usr/local/lib/python3.7/site-packages/tensorflow/python/framework/ops.py:487 _disallow_bool_casting
+        "using a `tf.Tensor` as a Python `bool`")
+    /usr/local/lib/python3.7/site-packages/tensorflow/python/framework/ops.py:474 _disallow_when_autograph_enabled
+        " indicate you are trying to use an unsupported feature.".format(task))
+
+    OperatorNotAllowedInGraphError: using a `tf.Tensor` as a Python `bool` is not allowed: AutoGraph did convert this function. This might indicate you are trying to use an unsupported feature.
+
+2020-11-04 15:14:21 Uploading - Uploading generated training model
+2020-11-04 15:14:21 Failed - Training job failed

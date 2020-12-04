@@ -1,0 +1,23 @@
+version: '2.4'
+
+services:
+  notebook:
+    image: notebook:dev
+    container_name: notebook
+    hostname: notebook
+    build:
+      context: ./notebook
+      dockerfile: ./dockerfile/Dockerfile.dev
+    
+    environment:
+      - PYTHONPATH=/app/notebook
+      - AWS_REGION=ap-northeast-1
+    volumes:
+      - ./notebook/src:/app/notebook
+      - ./notebook/config:/config
+      - ./notebook/keras:/root/.keras
+      - ~/.aws:/root/.aws
+    ports:
+      - "6006:6006" # for tensorboard
+      - "8888:8888" # for jupyterlab
+

@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: ---
+
+Parameters: 
+  BucketName:
+    Description: a name for the bucket used by sagemaker
+    Type: String
+    Default: sagemaker-nst
+
+Resources: 
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties: 
+      BucketName:
+        Ref: BucketName
+
+
+  SageMakerExecRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+            - sagemaker.amazonaws.com
+          Action:
+          - sts:AssumeRole
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
+      Policies:
+        - PolicyName: S3BucketAccessPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "s3:GetObject"
+                  - "s3:PutObject"
+                  - "s3:DeleteObject"
+                  - "s3:ListBucket"
+                Resource:
+                  Fn::Sub: 'arn:aws:s3:::${BucketName}'
+
+Outputs:  
+  S3Bucket4Train:
+    Description: the s3 bucket used by sagemaker during training
+    Value:
+      Ref: BucketName
+  SageMakerRole:
+    Description: service role for sagemaker
+    Value:
+      Ref: SageMakerExecRole
+
