@@ -17,7 +17,10 @@ cd sagemaker-nst
 - Notebook Container
 ```
 # build docker image
-docker-compose build 
+docker-compose -f docker-compose-cpu.yml build
+# or
+docker-compose -f docker-compose-gpu.yml build
+
 
 # launch the notebook container
 docker-compose -f docker-compose-cpu.yml up -d 
